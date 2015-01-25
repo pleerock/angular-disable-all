@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>disable-all sample</title>
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../dist/angular-disable-all.js"></script>
+    <script src="disableAllSample.js"></script>
+
+    <style>
+        .simple-div.disable-all { background: #eee; }
+        .simple-div.disable-all a { color: #ccc; }
+        .simple-div.disable-all a:hover { cursor: default; }
+    </style>
+
+</head>
+<body ng-app="disableAllSample">
+
+    <!-- =================================================================== -->
+
+    <h1>Simple usage:</h1>
+    <form disable-all="true">
+
+        <label>First name:</label><br/>
+        <input type="text"><br/>
+
+        <label>Second name:</label><br/>
+        <input type="text"><br/>
+
+        <label>About yourself:</label><br/>
+        <input type="text"><br/>
+
+        <label>Gender:</label><br/>
+        <input type="radio" name="gender"> Male<br/>
+        <input type="radio" name="gender"> Female<br/>
+
+        <label>Are you OK to continue?</label><br/>
+        <input type="checkbox"> Yes<br/>
+
+        <button type="submit">Yes</button>
+        <button>No</button><br/>
+
+        <a href="http://google.com">something else</a>
+
+    </form>
+
+    <!-- =================================================================== -->
+
+    <h1>Simple usage with bind variable:</h1>
+    <div disable-all="isDisabled">
+        <form>
+
+            <label>First name:</label><br/>
+            <input type="text"><br/>
+
+            <label>Second name:</label><br/>
+            <input type="text"><br/>
+
+            <label>About yourself:</label><br/>
+            <input type="text"><br/>
+
+            <label>Gender:</label><br/>
+            <input type="radio" name="gender"> Male<br/>
+            <input type="radio" name="gender"> Female<br/>
+
+            <label>Are you OK to continue?</label><br/>
+            <input type="checkbox"> Yes<br/>
+
+            <button type="submit">Yes</button>
+            <button>No</button><br/>
+
+            <a href="http://google.com">something else</a>
+
+        </form>
+    </div>
+
+    <button ng-click="isDisabled = !isDisabled">Disable / enable</button>
+
+    <!-- =================================================================== -->
+
+    <h1>Bind disabling to element on another DOM level</h1>
+    <div disable-all="true" disable-element-id="elementThatMustBeDisabled">
+        Wow this is another element!
+    </div>
+    <div id="elementThatMustBeDisabled">
+        <form>
+
+            <label>First name:</label><br/>
+            <input type="text"><br/>
+
+            <label>Second name:</label><br/>
+            <input type="text"><br/>
+
+            <label>About yourself:</label><br/>
+            <input type="text"><br/>
+
+            <label>Gender:</label><br/>
+            <input type="radio" name="gender"> Male<br/>
+            <input type="radio" name="gender"> Female<br/>
+
+            <label>Are you OK to continue?</label><br/>
+            <input type="checkbox"> Yes<br/>
+
+            <button type="submit">Yes</button>
+            <button>No</button><br/>
+
+            <a href="http://google.com">something else</a>
+
+        </form>
+    </div>
+
+    <!-- =================================================================== -->
+
+    <h1>Custom styles</h1>
+    <div class="simple-div" disable-all="isDisabled">
+        <form>
+
+            <label>First name:</label><br/>
+            <input type="text"><br/>
+
+            <label>Second name:</label><br/>
+            <input type="text"><br/>
+
+            <label>About yourself:</label><br/>
+            <input type="text"><br/>
+
+            <label>Gender:</label><br/>
+            <input type="radio" name="gender"> Male<br/>
+            <input type="radio" name="gender"> Female<br/>
+
+            <label>Are you OK to continue?</label><br/>
+            <input type="checkbox"> Yes<br/>
+
+            <button type="submit">Yes</button>
+            <button>No</button><br/>
+
+            <a href="http://google.com">something else</a>
+
+        </form>
+    </div>
+
+    <button ng-click="isDisabled = !isDisabled">Disable / enable</button>
+
+    <!-- =================================================================== -->
+
+</body>
+</html>
