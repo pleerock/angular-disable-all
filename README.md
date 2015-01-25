@@ -37,6 +37,17 @@ Lets say you have a div with a form and inputs and buttons inside:
 
 You can specify boolean variable to `disable-all`, directive will watch it and disable / enable div when variable changes.
 
+```html
+<div disable-all="isDisabled">
+
+    <form>
+        <input name="name" type="text">
+        <button>submit</button>
+    </form>
+
+</div>
+```
+
 **TODO-s (for contributors)**:
 
  * refactor some parts of code and make it easier to understand and maintain
