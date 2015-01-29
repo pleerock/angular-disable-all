@@ -1,8 +1,7 @@
 disable-all directive for AngularJS
 ========================
 
-This directive allows your inputs to grow as soon as user types.
-The input's width always fit the text user typed in the input.
+This directive allows to disable a given element and all buttons, inputs and other form controls will be disabled.
 
 Open samples/index.html to see the example how to use this directive.
 
