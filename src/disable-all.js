@@ -56,6 +56,7 @@
         disableElements(element.getElementsByTagName('input'));
         disableElements(element.getElementsByTagName('button'));
         disableElements(element.getElementsByTagName('textarea'));
+        disableElements(element.getElementsByTagName('select'));
         element.addEventListener('click', preventDefault, true);
     };
 
@@ -70,6 +71,7 @@
         enableElements(element.getElementsByTagName('input'));
         enableElements(element.getElementsByTagName('button'));
         enableElements(element.getElementsByTagName('textarea'));
+        enableElements(element.getElementsByTagName('select'));
         element.removeEventListener('click', preventDefault, true);
     };
 
