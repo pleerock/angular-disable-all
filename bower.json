@@ -1,7 +1,7 @@
 {
   "name": "angular-disable-all",
   "description": "Angular directive that allows to disable any element (for example DIV) content (inputs, buttons, etc.) and disable clicks on the given element",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": ["disable-all", "angular-disable-all"],
   "authors": [
     { "name": "Umed Khudoiberdiev", "email": "info@zar.tj" }
