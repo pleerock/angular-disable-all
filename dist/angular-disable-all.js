@@ -11,6 +11,25 @@
      * This module represents a disable-all directive which allows you to disable any element in the DOM.
      */
     angular.module('disableAll', []);
+    
+    /**
+     * @ngdoc directive
+     * @name doNotDisable
+     * @restrict A
+     * @description
+     * This directive allows you to do not disable the element even if it's under the disableAll directive
+     */
+    angular.module('disableAll').directive('doNotDisable', doNotDisableDirective);
+    
+    /**
+     * @ngInject
+     */
+    function doNotDisableDirective() {
+        return {
+            restrict: 'A'
+        };
+    }
+
 
     /**
      * @ngdoc directive
@@ -21,7 +40,7 @@
      * inputs, buttons and textareas in the given element scope.
      */
     angular.module('disableAll').directive('disableAll', disableAllDirective);
-
+    
     /**
      * @ngInject
      */
@@ -82,6 +101,12 @@
      * @returns {boolean}
      */
     var preventDefault = function(event) {
+        for (var i = 0; i < event.target.attributes.length; i++) {
+            var atts = event.target.attributes[i];
+            if(atts.name === "do-not-disable"){
+                return true;
+            }
+        }
         event.stopPropagation();
         event.preventDefault();
         return false;
@@ -95,7 +120,15 @@
     var disableElements = function(elements) {
         var len = elements.length;
         for (var i = 0; i < len; i++) {
-            if (elements[i].disabled === false) {
+            var shouldDisable = true;
+            for (var j = 0; j < elements[i].attributes.length; j++) {
+                var atts = elements[i].attributes[j];
+                if(atts.name === "do-not-disable"){
+                    shouldDisable = false;
+                    continue;
+                }
+            }
+            if (shouldDisable && elements[i].disabled === false) {
                 elements[i].disabled = true;
                 elements[i].disabledIf = true;
             }
