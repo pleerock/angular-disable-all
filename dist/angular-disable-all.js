@@ -19,12 +19,12 @@
      * @description
      * This directive allows you to do not disable the element even if it's under the disableAll directive
      */
-    angular.module('disableAll').directive('doNotDisable', doNotDisableDirective);
+    angular.module('disableAll').directive('skipDisable', skipDisableDirective);
     
     /**
      * @ngInject
      */
-    function doNotDisableDirective() {
+    function skipDisableDirective() {
         return {
             restrict: 'A'
         };
@@ -103,7 +103,7 @@
     var preventDefault = function(event) {
         for (var i = 0; i < event.target.attributes.length; i++) {
             var atts = event.target.attributes[i];
-            if(atts.name === "do-not-disable"){
+            if(atts.name === "skip-disable"){
                 return true;
             }
         }
@@ -123,7 +123,7 @@
             var shouldDisable = true;
             for (var j = 0; j < elements[i].attributes.length; j++) {
                 var atts = elements[i].attributes[j];
-                if(atts.name === "do-not-disable"){
+                if(atts.name === "skip-disable"){
                     shouldDisable = false;
                     continue;
                 }
