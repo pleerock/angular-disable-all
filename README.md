@@ -30,6 +30,9 @@ Lets say you have a div with a form and inputs and buttons inside:
         <input name="name" type="text">
         <button>submit</button>
     </form>
+    
+    <!-- This will not be disabled -->
+    <a href="http://google.com" do-not-disable>google</a>
 
 </div>
 ```
