@@ -10,6 +10,14 @@
      * @ngdoc module
      * @name disableAllSample
      */
-    angular.module('disableAllSample', ['disableAll']);
+    angular.module('disableAllSample', ['disableAll'])
+	.controller('ctrl', function($timeout) {
+        var _self = this;
+
+        // some async init method
+        $timeout(function() {
+            _self.initialized = true;
+        }, 10);
+    });
 
 })();

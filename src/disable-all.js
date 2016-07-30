@@ -1,7 +1,7 @@
 /**
  * @author Umed Khudoiberdiev <info@zar.tj>
  */
-(function() {
+(function(angular, undefined) {
     'use strict';
 
     /**
@@ -49,12 +49,20 @@
             restrict: 'A',
             link: function (scope, element, attrs) {
                 var disabledElement = (attrs.disableElementId) ? document.getElementById(attrs.disableElementId) : element[0];
+				var childNodeLength = element[0].childNodes.length;
+				
+				// Watch on DOM changement
+				scope.$watch(function () {
+					return element[0].childNodes.length;
+				}, function(newValue, oldValue) {
+					if (newValue !== oldValue) {				
+                      	toggleDisableAll(disabledElement, attrs.disableAll);
+                   }
+				});
 
+				// Watch on DisableAll attribute value
                 scope.$watch(attrs.disableAll, function (isDisabled) {
-                    if (isDisabled)
-                        disableAll(disabledElement);
-                    else
-                        enableAll(disabledElement);
+					toggleDisableAll(disabledElement, isDisabled);
                 });
 
                 scope.$on('$destroy', function() {
@@ -63,6 +71,15 @@
             }
         };
     }
+	
+	var toggleDisableAll = function(element, isDisabled) {
+		if (isDisabled) {
+			disableAll(element);
+		}
+		else {
+			enableAll(element);
+		}
+	}
 
     /**
      * Disables everything in the given element.
@@ -150,4 +167,4 @@
         }
     };
 
-})();
+})(angular);
