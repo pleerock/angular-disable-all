@@ -14,7 +14,7 @@
     
     /**
      * @ngdoc directive
-     * @name doNotDisable
+     * @name skipDisable
      * @restrict A
      * @description
      * This directive allows you to do not disable the element even if it's under the disableAll directive
