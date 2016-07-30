@@ -16,13 +16,13 @@
     </style>
 
 </head>
-<body ng-app="disableAllSample">
+<body ng-app="disableAllSample" ng-controller="ctrl as vm">
 
     <!-- =================================================================== -->
 
     <h1>Simple usage:</h1>
     <form disable-all="true">
-
+	
         <label>First name:</label><br/>
         <input type="text"><br/>
 
@@ -146,6 +146,36 @@
     <button ng-click="isDisabled = !isDisabled">Disable / enable</button>
 
     <!-- =================================================================== -->
+	
+	<h1>Simple usage with async DOM change:</h1>
+    <form disable-all="true">
+			
+		<div ng-if="vm.initialized">
+			<label>First name:</label><br/>
+			<input type="text"><br/>
+
+			<label>Second name:</label><br/>
+			<input type="text"><br/>
+		</div>
+        
+		<label>About yourself:</label><br/>
+        <input type="text"><br/>
+        
+        <label>Gender:</label><br/>
+        <input type="radio" name="gender"> Male<br/>
+        <input type="radio" name="gender"> Female<br/>
+
+        <label>Are you OK to continue?</label><br/>
+        <input type="checkbox"> Yes<br/>
+
+        <button type="submit">Yes</button>
+        <button>No</button><br/>
+
+        <a href="http://google.com">something else</a>
+        
+        <a href="http://google.com" do-not-disable>Link not disabled</a>
+
+    </form>
 
 </body>
 </html>

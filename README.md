@@ -32,12 +32,14 @@ Lets say you have a div with a form and inputs and buttons inside:
     </form>
     
     <!-- This will not be disabled -->
-    <a href="http://google.com" do-not-disable>google</a>
+    <a href="http://google.com" skip-disable>google</a>
 
 </div>
 ```
 
-You can specify boolean variable to `disable-all`, directive will watch it and disable / enable div when variable changes.
+**Note:** The ```skip-disable``` directive allow you to exclude a DOM element of the ```disable-all``` directive.
+
+You can also specify boolean variable to `disable-all`, directive will watch it and disable / enable div when variable changes.
 
 ```html
 <div disable-all="isDisabled">
